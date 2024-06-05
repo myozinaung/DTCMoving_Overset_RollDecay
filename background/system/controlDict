@@ -1,0 +1,104 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2206                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+libs            (overset rigidBodyDynamics);
+
+application     overInterDyMFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+// stopAt          writeNow;
+// stopAt          nextWrite;
+
+endTime         60;
+
+deltaT          1e-5;
+
+writeControl    adjustableRunTime;
+
+writeInterval   5;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  8;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   8;
+
+runTimeModifiable yes;
+
+adjustTimeStep  yes;
+
+maxAlphaCo      5;
+
+maxCo           5;
+
+maxDeltaT       0.01;
+
+functions
+{
+
+    forces
+    {
+        type            forces;
+        libs            ("libforces.so");
+        patches         (hull);
+        rhoInf          998.8;
+        log             on;
+        writeControl    timeStep;
+        writeInterval   1;
+        CofR            (2.929541 0 0.2);
+    }
+
+    // sixDoFRigidBodyState // error: Attempt to cast type dynamicOversetFvMesh to type dynamicMotionSolverFvMesh
+    // // From To& Foam::refCast(From&) [with To = const Foam::dynamicMotionSolverFvMesh; From = const Foam::objectRegistry]
+    // // in file /home/mol/openfoam/OpenFOAM-com/src/OpenFOAM/lnInclude/typeInfo.H at line 139.
+    // {
+    //     type           sixDoFRigidBodyState;
+    //     libs           (sixDoFRigidBodyState);
+    //     // patches        (hull);
+    //     angleFormat    degrees;
+    // }
+
+    // rigidBodyState
+    // {
+    //     type           rigidBodyState;
+    //     libs           ("librigidBodyState.so");
+    //     patches        (hull);
+    //     angleFormat    degrees;
+    // }
+    //     Could not load "librigidBodyState.so"
+    // librigidBodyState.so: cannot open shared object file: No such file or directory
+    // --> FOAM Warning : 
+    // Unknown function type rigidBodyState
+    // Valid function types :
+    // 9(forceCoeffs forces patchProbes probes propellerInfo psiReactionThermoMoleFractions rhoReactionThermoMoleFractions sets surfaces)
+    //     From static Foam::autoPtr<Foam::functionObject> Foam::functionObject::New(const Foam::word&, const Foam::Time&, const Foam::dictionary&)
+    //     in file db/functionObjects/functionObject/functionObject.C at line 129.
+    // --> loading function object 'rigidBodyState'
+
+}
+
+
+// ************************************************************************* //

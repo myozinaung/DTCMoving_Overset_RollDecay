@@ -1,0 +1,8 @@
+DTCHullMoving_Overset(v2312) --> Roll Decay Test (DTC Paper)
+
+Modifications:
+
+- Half to Full Model
+- Adjust CG location and moment of inertia
+- Release 6DOF
+- Pre Roll and heave equilibrium before test (meshMove)
