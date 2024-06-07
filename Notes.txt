@@ -6,3 +6,39 @@ Modifications:
 - Adjust CG location and moment of inertia
 - Release 6DOF
 - Pre Roll and heave equilibrium before test (meshMove)
+- For zero speed, no Inlet/Outlet, noSlip Wall?????
+- Change the tank size
+
+
+- added renumberMesh after Merging (not necessary)
+- added shell script to move oversetHull to the top (above atmosphere) in constant/polyMesh/boundary
+
+hull/
+blockMeshDict
+- increase ymax to get fullwidth (no symmetry)
+- removed mid symmetry plane
+- added mid symmetry plane faces to oversetHull
+- blocks: yCells 20 to 40
+
+snappyHexMeshDict
+- need to adjust locationInMesh to make sure the mesh is inside the mesh
+
+background/
+0/U
+- change U to 0 m/s
+
+blockMeshDict
+- increase ymax to get fullwidth (no symmetry)
+- no need to remove mid symmetry plane
+- blocks: yCells 19 to 38 (all blocks)
+
+dynamicMeshDict
+- removed restraints
+- added Px, Py and Rx, Rz in joints OR change composite to floating, removed joints
+- double mass and inertia
+
+snappyHexMeshDict
+- BoxRefinement_1 increase ymax to get fullwidth (no symmetry)
+
+topsetDicts(All)
+- increase ymax to get fullwidth (no symmetry)

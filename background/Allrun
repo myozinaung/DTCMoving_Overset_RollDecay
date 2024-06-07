@@ -9,6 +9,10 @@ restore0Dir
 
 runApplication mergeMeshes . ../hull -overwrite
 
+./AllmoveOversetBCTop
+
+# runApplication renumberMesh -overwrite # not needed
+
 runApplication -s zoneIDs topoSet # create cellSets
 
 runApplication setFields # assign zoneIDs and alpha.water

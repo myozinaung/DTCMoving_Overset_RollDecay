@@ -28,23 +28,23 @@ stopAt          endTime;
 
 endTime         60;
 
-deltaT          1e-5;
+deltaT          1e-3;
 
 writeControl    adjustableRunTime;
 
-writeInterval   5;
+writeInterval   1;
 
 purgeWrite      0;
 
 writeFormat     binary;
 
-writePrecision  8;
+writePrecision  6;
 
 writeCompression off;
 
 timeFormat      general;
 
-timePrecision   8;
+timePrecision   6;
 
 runTimeModifiable yes;
 
@@ -52,7 +52,7 @@ adjustTimeStep  yes;
 
 maxAlphaCo      5;
 
-maxCo           5;
+maxCo           10;
 
 maxDeltaT       0.01;
 

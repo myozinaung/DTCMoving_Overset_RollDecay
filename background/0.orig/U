@@ -16,8 +16,8 @@ FoamFile
 
 dimensions      [0 1 -1 0 0 0 0];
 
-Umean 0;
-mUmean -0;
+Umean 1.668;
+mUmean -1.668;
 
 internalField   uniform ($mUmean 0 0);
 

@@ -1,0 +1,47 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+#!/bin/bash
+
+input_file="constant/polyMesh/boundary"  # specify the path to your file
+output_file="constant/polyMesh/boundary_temp"  # specify the path to the output file
+
+# Using awk to reorder blocks
+awk '
+    BEGIN { 
+        oversetHullBlock = ""; 
+        insideOversetHullBlock = 0;
+    }
+    /oversetHull/ { 
+        insideOversetHullBlock = 1; 
+    }
+    insideOversetHullBlock { 
+        oversetHullBlock = oversetHullBlock $0 "\n"; 
+        if ($0 ~ /\}/) { 
+            insideOversetHullBlock = 0; 
+        } 
+        next; 
+    }
+    { 
+        content = content $0 "\n"; 
+    }
+    END {
+        split(content, lines, /\n/)
+        for (i in lines) {
+            if (lines[i] ~ /atmosphere/) {
+                print oversetHullBlock
+            }
+            print lines[i]
+        }
+    }
+' $input_file > $output_file
+
+mv $output_file $input_file
+
+echo "Reordering completed. Check the output file"
+
+
+
+#------------------------------------------------------------------------------

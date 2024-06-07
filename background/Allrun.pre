@@ -17,4 +17,5 @@ do
         refineMesh -dict system/refineMeshDict -overwrite
 done
 
+runApplication -s "beforeMerge" renumberMesh -constant -overwrite
 #------------------------------------------------------------------------------

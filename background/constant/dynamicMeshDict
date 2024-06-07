@@ -52,48 +52,52 @@ solvers
             {
                 type            rigidBody;
                 parent          root;
-                mass            412.73;
+                mass            825.46; // 412.73
 
                 centreOfMass    (0 0 0);
                 // centreOfMass    (2.929541 0 0.2);
-                inertia         (40 0 0 921 0 921);
+                inertia         (80 0 0 1842 0 1842); // 40 0 0 921 0 921
                 // Transformation tensor and centre of rotation
                 transform       (1 0 0 0 1 0 0 0 1)  (2.929541 0 0.2);
-                // joint
-                // {
-                //     type            composite;
+                joint
+                {
+                    // type            floating; // floating, fixed, composite
+                    type            composite;
 
-                //     joints
-                //     (
-                //         {
-                //             type Pz;
-                //         }
-                //         {
-                //             type Ry;
-                //         }
-                //     );
-                // }
+                    joints
+                    (
+                        {
+                            // type Px;
+                            // type Py;
+                            type Pz;
+                        }
+                        {
+                            // type Rxyz;
+                            type Ry;
+                        }
+                    );
+                }
                 patches    (hull);
                 innerDistance   100;
                 outerDistance   200;
             }
         }
-        // restraints
-        // {
-        //     translationDamper
-        //     {
-        //         type linearDamper;
-        //         body hull;
-        //         coeff 8596;
-        //     }
+        restraints
+        {
+            translationDamper
+            {
+                type linearDamper;
+                body hull;
+                coeff 17200; // 8596
+            }
 
-        //     rotationDamper
-        //     {
-        //         type sphericalAngularDamper;
-        //         body hull;
-        //         coeff 11586;
-        //     }
-        // }
+            rotationDamper
+            {
+                type sphericalAngularDamper;
+                body hull;
+                coeff 23200; // 11586
+            }
+        }
     }
 }
 

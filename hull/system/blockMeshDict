@@ -36,7 +36,7 @@ vertices
 
 blocks
 (
-    hex (0 1 2 3 4 5 6 7) ( 230 20 32 ) simpleGrading ( 1 1 1 )
+    hex (0 1 2 3 4 5 6 7) ( 230 40 32 ) simpleGrading ( 1 1 1 )
 );
 
 edges
@@ -53,20 +53,20 @@ boundary
             (0 4 7 3) // xmin
             (1 2 6 5) // xmax
             (0 1 5 4) // ymin
-            // (3 7 6 2) // ymax
+            (3 7 6 2) // ymax
             (0 3 2 1) // bottom
             (4 5 6 7) // top
         );
     }
 
-    hullMidPlane
-    {
-        type symmetry;
-        faces
-        (
-            (3 7 6 2) // ymax
-        );
-    }
+    // hullMidPlane
+    // {
+    //     type symmetry;
+    //     faces
+    //     (
+    //         (3 7 6 2) // ymax
+    //     );
+    // }
 );
 
 
