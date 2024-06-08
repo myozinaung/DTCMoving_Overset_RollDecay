@@ -49,7 +49,7 @@ dynamicMeshDict
 - added Px, Py and Rx, Rz in joints OR change composite to floating, removed joints
 - double mass and inertia
 
-snappyHexMeshDict
+snappyHexMeshDict (not used)
 - BoxRefinement_1 increase ymax to get fullwidth (no symmetry)
 
 topsetDicts(All)
