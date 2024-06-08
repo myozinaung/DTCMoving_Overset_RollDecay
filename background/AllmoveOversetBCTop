@@ -5,6 +5,8 @@ cd "${0%/*}" || exit                                # Run from this directory
 
 #!/bin/bash
 
+# To supress the warning of overset BC not at the top of the boundary file, log.overIntreFoam 
+
 input_file="constant/polyMesh/boundary"  # specify the path to your file
 output_file="constant/polyMesh/boundary_temp"  # specify the path to the output file
 

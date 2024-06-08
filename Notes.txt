@@ -2,12 +2,23 @@ DTCHullMoving_Overset(v2312) --> Roll Decay Test (DTC Paper)
 
 Modifications:
 
-- Half to Full Model
-- Adjust CG location and moment of inertia
-- Release 6DOF
-- Pre Roll and heave equilibrium before test (meshMove)
-- For zero speed, no Inlet/Outlet, noSlip Wall?????
-- Change the tank size
+- Half to Full Model >> finished
+- Adjust CG location and moment of inertia >> finished
+- Release 6DOF (change joints to floating???) >> finished
+- Pre Roll (roatate-angle) >> finished
+- heave equilibrium (translate) >> finished
+- For zero speed, no Inlet/Outlet, noSlip Wall or symmetry????? >> finished
+- Change the tank size >> finished (not same size as Cadence Webinar)
+- remove damping restraints >> finished
+- no accelerationDamping and accelerationRelaxation >> finished
+- fvOptions velocityDampingConstraint remove??? >> finished
+
+- Rotate and translate using transform in dynamicMeshDict???
+
+Mesh Improvement:
+- More Inflation layers
+- More refinement near the hull
+- Wave damping zone
 
 
 - added renumberMesh after Merging (not necessary)
@@ -25,12 +36,13 @@ snappyHexMeshDict
 
 background/
 0/U
-- change U to 0 m/s
+- change U to 0 m/s (no need if Inlet/Outlet are symmetry)
 
 blockMeshDict
 - increase ymax to get fullwidth (no symmetry)
 - no need to remove mid symmetry plane
 - blocks: yCells 19 to 38 (all blocks)
+- Adjust xmin and xmax so that the ship is in the middle of the domain
 
 dynamicMeshDict
 - removed restraints

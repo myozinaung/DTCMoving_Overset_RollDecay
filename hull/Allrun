@@ -24,4 +24,6 @@ runParallel redistributePar -reconstruct -constant -overwrite
 
 runApplication renumberMesh -constant -overwrite
 
+
+runApplication transformPoints -origin '(2.953 0 0.399)' -yawPitchRoll '(0 0 15)' -translate '(0 0 -0.0008)' # pre roll and heave equilibrium
 #------------------------------------------------------------------------------

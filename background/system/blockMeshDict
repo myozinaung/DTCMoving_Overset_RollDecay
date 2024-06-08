@@ -16,8 +16,8 @@ FoamFile
 
 scale   1;
 
-xmin   -26;
-xmax    16;
+xmin   -18;
+xmax    24;
 
 ymin   -19;
 ymax    19;
@@ -25,7 +25,7 @@ ymax    19;
 zmin   -16;
 z1     -1;
 z2     0.185;
-z3     0.244;
+z3     0.2357;
 z4     0.3;
 z5     1.6;
 zmax    4;
@@ -94,7 +94,8 @@ boundary
     }
     inlet
     {
-        type patch;
+        // type patch;
+        type symmetry;
         faces
         (
             (1 2 6 5)
@@ -107,7 +108,8 @@ boundary
     }
     outlet
     {
-        type patch;
+        // type patch;
+        type symmetry;
         faces
         (
             (0 4 7 3)

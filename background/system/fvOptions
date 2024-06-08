@@ -22,5 +22,8 @@ damp
     UMax            14;
 }
 
+// This constraint is primarily used to dampen velocity fluctuations in the start-up phase of simulations. 
+// When the local velocity magnitude exceeds the user-supplied maximum value a sink term is activated 
+// in the affected region to lower the velocity to the limiting value.
 
 // ************************************************************************* //

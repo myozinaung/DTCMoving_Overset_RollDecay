@@ -16,10 +16,10 @@ FoamFile
 
 dimensions      [0 1 -1 0 0 0 0];
 
-Umean 1.668;
-mUmean -1.668;
+// Umean 0;
+// mUmean 0;
 
-internalField   uniform ($mUmean 0 0);
+internalField   uniform (0 0 0);
 
 boundaryField
 {
@@ -31,29 +31,29 @@ boundaryField
         value           uniform (0 0 0);
     }
 
-    inlet
-    {
-        type            fixedValue;
-        value           $internalField;
-    }
+    // inlet
+    // {
+    //     type            fixedValue;
+    //     value           $internalField;
+    // }
+
+    // // outlet
+    // // {
+    // //     type            inletOutlet;
+    // //     // value           uniform (0 0 0);
+    // //     // inletValue      uniform (0 0 0 );
+
+    // //     value           $internalField;
+    // //     inletValue      uniform (0 0 0 );
+    // // }
 
     // outlet
     // {
-    //     type            inletOutlet;
-    //     // value           uniform (0 0 0);
-    //     // inletValue      uniform (0 0 0 );
-
+    //     type            outletPhaseMeanVelocity;
+    //     alpha           alpha.water;
+    //     Umean           $Umean;
     //     value           $internalField;
-    //     inletValue      uniform (0 0 0 );
     // }
-
-    outlet
-    {
-        type            outletPhaseMeanVelocity;
-        alpha           alpha.water;
-        Umean           $Umean;
-        value           $internalField;
-    }
 
     atmosphere
     {

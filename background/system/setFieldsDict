@@ -48,7 +48,7 @@ regions
     // (does zerogradient on boundaries)
     boxToCell
     {
-        box (-1000 -1000 -1000) (1000 1000 0.244);
+        box (-1000 -1000 -1000) (1000 1000 0.2357);
 
         fieldValues
         (
@@ -59,7 +59,7 @@ regions
     // Set patch values (using ==)
     boxToFace
     {
-        box (-1000 -1000 -1000) (1000 1000 0.244);
+        box (-1000 -1000 -1000) (1000 1000 0.2357);
 
         fieldValues
         (

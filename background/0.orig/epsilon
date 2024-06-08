@@ -22,13 +22,20 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    inlet
-    {
-        type            fixedValue;
-        value           $internalField;
-    }
+    // inlet
+    // {
+    //     type            fixedValue;
+    //     value           $internalField;
+    // }
 
-    "(atmosphere|outlet)"
+    // outlet
+    // {
+    //     type            inletOutlet;
+    //     inletValue      $internalField;
+    //     value           $internalField;
+    // }
+
+    atmosphere
     {
         type            inletOutlet;
         inletValue      $internalField;

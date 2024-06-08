@@ -22,16 +22,16 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    inlet
-    {
-        type            fixedFluxPressure;
-        value           $internalField;
-    }
+    // inlet
+    // {
+    //     type            fixedFluxPressure;
+    //     value           $internalField;
+    // }
 
-    outlet
-    {
-        type            zeroGradient;
-    }
+    // outlet
+    // {
+    //     type            zeroGradient;
+    // }
 
     atmosphere
     {
